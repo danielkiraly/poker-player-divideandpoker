@@ -6,19 +6,17 @@ class Player:
     VERSION = "1.1"
 
     def betRequest(self, game_state):
-        try:
-            players = game_state["players"]
-            hole_cards = []
-            for player in players:
-                if player['name'] == 'DivideAndPoker':
-                    hole_cards = player['hole_cards']
-            self.log(hole_cards)
-            if self.isPair(hole_cards) or self.isHighCard(hole_cards) or self.isSameColor(hole_cards):
-                return 600
-        except:
-            self.log('handling exception')
+        players = game_state["players"]
+        hole_cards = []
+        for player in players:
+            if player['name'] == 'DivideAndPoker':
+                hole_cards = player['hole_cards']
+        self.log(hole_cards)
+        if self.isPair(hole_cards) or self.isHighCard(hole_cards) or self.isSameColor(hole_cards):
+            return 600
+        else:
             return 0
-        return 0
+
 
     def showdown(self, game_state):
         pass
