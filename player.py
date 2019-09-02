@@ -1,4 +1,6 @@
 import json
+
+
 class Player:
     VERSION = "1.1"
 
@@ -13,7 +15,6 @@ class Player:
             return 10
         else:
             return 0
-
 
     def showdown(self, game_state):
         pass
