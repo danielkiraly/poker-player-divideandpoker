@@ -13,10 +13,12 @@ class Player:
                 if player['name'] == 'DivideAndPoker':
                     hole_cards = player['hole_cards']
             self.log(hole_cards)
+            if self.isPair(hole_cards) or self.isHighCard(hole_cards) or self.isSameColor(hole_cards):
+                return 600
         except:
             self.log('handling exception')
-            return 600
-        return 600
+            return 0
+        return 0
 
     def showdown(self, game_state):
         pass
@@ -41,4 +43,10 @@ class Player:
 
 
     def isHighCard(self, cards):
+        highCards = ["A", "J", "Q", "K"]
+        if cards[0]["rank"] or cards[1]["rank"] in highCards:
+            return True
+        else:
+            return False
+
 
