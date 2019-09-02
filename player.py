@@ -1,4 +1,6 @@
 import json
+
+
 class Player:
     VERSION = "1.1"
 
@@ -6,7 +8,7 @@ class Player:
         data = json.load(game_state)
         """players = data["players"]
         hole_cards = players["hole"]"""
-        print(data)
+        print(json.dumps(data, indent=4, sort_keys=True))
         return 0
 
     def showdown(self, game_state):
