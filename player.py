@@ -16,7 +16,7 @@ class Player:
             return 10
         else:
             return 0"""
-        return 501
+        return 600
 
     def showdown(self, game_state):
         pass
