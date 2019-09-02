@@ -11,8 +11,12 @@ class Player:
             if player['name'] == 'DivideAndPoker':
                 hole_cards = player['hole_cards']
         self.log(hole_cards[0]['rank'])
-        if self.isPair(hole_cards) or self.isHighCard(hole_cards) or self.isSameColor(hole_cards):
-            return 600
+        if self.isPair(hole_cards):
+            return 1000
+        elif self.twoHighCard(hole_cards):
+            return 500
+        elif self.isHighCard(hole_cards) or self.isSameColor(hole_cards):
+            return 100
         else:
             return 0
 
