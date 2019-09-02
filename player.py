@@ -10,7 +10,7 @@ class Player:
             players = game_state["players"]
             hole_cards = []
             for player in players:
-                if player['name'] == 'DivideAndConquer':
+                if player['name'] == 'DivideAndPoker':
                     hole_cards = player['hole_cards']
             self.log(hole_cards)
         except:
