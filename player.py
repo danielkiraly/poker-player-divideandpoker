@@ -20,10 +20,7 @@ class Player:
         elif self.twoHighCard(hole_cards):
             return 1000
         elif self.isHighCard(hole_cards) or self.isSameColor(hole_cards):
-            if current_round == '0':
-                return 100
-            else:
-                return buy_in
+            return 100
         else:
             return 0
 
