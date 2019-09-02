@@ -34,7 +34,8 @@ class Player:
 
 
     def isPair(self, cards):
-        if cards[0]["rank"] == cards[1]["rank"]:
+        goodCards = ["5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+        if (cards[0]["rank"] == cards[1]["rank"]) and (cards[0]["rank"] in goodCards):
             return True
         else:
             return False
