@@ -14,7 +14,7 @@ class Player:
         if self.isPair(hole_cards):
             return 1000
         elif self.twoHighCard(hole_cards):
-            return 500
+            return 1000
         elif self.isHighCard(hole_cards) or self.isSameColor(hole_cards):
             return 100
         else:
