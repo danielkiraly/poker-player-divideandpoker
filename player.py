@@ -1,3 +1,4 @@
+from __future__ import print_function
 import json
 
 
@@ -19,4 +20,8 @@ class Player:
 
     def showdown(self, game_state):
         pass
+
+    def log(message):
+        import sys
+        print(message, file=sys.stderr)
 
