@@ -8,7 +8,11 @@ class Player:
     def betRequest(self, game_state):
         try:
             players = game_state["players"]
-            self.log(players)
+            hole_cards = []
+            for player in players:
+                if player['name'] == 'DivideAndConquer':
+                    hole_cards = player['hole_cards']
+            self.log(hole_cards)
         except:
             self.log('handling exception')
             return 600
