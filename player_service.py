@@ -38,6 +38,8 @@ class PlayerService(BaseHTTPServer.BaseHTTPRequestHandler):
         response = ''
         if action == 'bet_request':
             response = Player().betRequest(game_state)
+            data = json.load(game_state)
+            print(json.dumps(data, indent=4, sort_keys=True))
         elif action == 'showdown':
             Player().showdown(game_state)
         elif action == 'version':
