@@ -14,7 +14,7 @@ class Player:
                 bet = player['bet']
         self.log(hole_cards[0]['rank'])
         buy_in = int(game_state['current_buy_in']) - int(bet)
-        current_round = game_state['round']
+        current_round = int(game_state['round'])
         community_cards = game_state['community_cards']
         if self.isPair(hole_cards):
             return 1000
@@ -23,9 +23,9 @@ class Player:
         elif self.isHighCard(hole_cards) and self.isSameColor(hole_cards):
             return 1000
         elif self.oneGoodCard(hole_cards):
-            if current_round == '0' and buy_in <= 100:
+            if current_round == 0 and buy_in <= 100:
                 return 100
-            elif current_round == '1' and self.checkForAnotherPair(hole_cards, community_cards):
+            elif current_round == 1 and self.checkForAnotherPair(hole_cards, community_cards):
                 return 1000
         else:
             return 0
