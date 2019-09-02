@@ -41,7 +41,7 @@ class Player:
 
     def isHighCard(self, cards):
         highCards = ["A", "J", "Q", "K"]
-        if cards[0]["rank"] or cards[1]["rank"] in highCards:
+        if cards[0]["rank"] in highCards or cards[1]["rank"] in highCards:
             return True
         else:
             return False
