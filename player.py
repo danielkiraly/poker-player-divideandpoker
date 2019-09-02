@@ -19,8 +19,8 @@ class Player:
             return 1000
         elif self.twoHighCard(hole_cards):
             return 1000
-        elif self.isHighCard(hole_cards) or self.isSameColor(hole_cards):
-            return 100
+        elif self.isHighCard(hole_cards):
+            return 1000
         else:
             return 0
 
@@ -49,7 +49,7 @@ class Player:
 
 
     def isHighCard(self, cards):
-        highCards = ["A", "J", "Q", "K"]
+        highCards = ["A"]
         if cards[0]["rank"] in highCards or cards[1]["rank"] in highCards:
             return True
         else:
