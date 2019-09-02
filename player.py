@@ -7,16 +7,23 @@ class Player:
     def betRequest(self, game_state):
         players = game_state["players"]
         hole_cards = []
+        bet = ''
         for player in players:
             if player['name'] == 'DivideAndPoker':
                 hole_cards = player['hole_cards']
+                bet = player['bet']
         self.log(hole_cards[0]['rank'])
+        buy_in = int(game_state['current_buy_in']) - int(bet)
+        current_round = game_state['round']
         if self.isPair(hole_cards):
             return 1000
         elif self.twoHighCard(hole_cards):
-            return 500
+            return 1000
         elif self.isHighCard(hole_cards) or self.isSameColor(hole_cards):
-            return 100
+            if current_round == '0':
+                return 100
+            else:
+                return buy_in
         else:
             return 0
 
