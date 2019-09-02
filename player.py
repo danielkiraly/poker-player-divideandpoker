@@ -47,3 +47,11 @@ class Player:
             return False
 
 
+    def twoHighCard(self, cards):
+        highCards = ["A", "J", "Q", "K"]
+        if (cards[0]["rank"] in highCards) and (cards[1]["rank"] in highCards):
+            return True
+        else:
+            return False
+
+
