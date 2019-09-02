@@ -15,12 +15,18 @@ class Player:
         self.log(hole_cards[0]['rank'])
         buy_in = int(game_state['current_buy_in']) - int(bet)
         current_round = game_state['round']
+        community_cards = game_state['community_cards']
         if self.isPair(hole_cards):
             return 1000
         elif self.twoHighCard(hole_cards):
             return 1000
         elif self.isHighCard(hole_cards) and self.isSameColor(hole_cards):
             return 1000
+        elif self.oneGoodCard(hole_cards):
+            if current_round == '0' and buy_in <= 100:
+                return 100
+            elif current_round == '1' and self.checkForAnotherPair(hole_cards, community_cards):
+                return 1000
         else:
             return 0
 
@@ -62,5 +68,23 @@ class Player:
             return True
         else:
             return False
+
+
+    def oneGoodCard(self, cards):
+        good_cards = ["9", "10", "A", "J", "Q", "K"]
+        if cards[0]['rank'] in good_cards or cards[1]['rank'] in good_cards:
+            return True
+        else:
+            return False
+
+
+
+    def checkForAnotherPair(self, current_cards, cards):
+        for current_card in current_cards:
+            for card in cards:
+                if current_card['rank'] == card['rank']:
+                    return True
+                else:
+                    return False
 
 
