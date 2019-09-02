@@ -22,11 +22,6 @@ class Player:
             return 1000
         elif self.isHighCard(hole_cards) and self.isSameColor(hole_cards):
             return 1000
-        elif self.oneGoodCard(hole_cards):
-            if current_round == '0' and buy_in <= 100:
-                return 100
-            elif current_round == '1' and self.checkForAnotherPair(hole_cards, community_cards):
-                return 1000
         else:
             return 0
 
