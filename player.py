@@ -10,6 +10,7 @@ class Player:
             players = game_state["players"]
             self.log(players)
         except:
+            self.log('handling exception')
             return 600
         return 600
 
