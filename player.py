@@ -40,8 +40,8 @@ class Player:
 
 
     def isHighCard(self, cards):
-        highCards = ["A", "J", "Q", "K"]
-        if cards[0]["rank"] or cards[1]["rank"] in highCards:
+        high_cards = ["A", "J", "Q", "K"]
+        if cards[0]["rank"] or cards[1]["rank"] in high_cards:
             return True
         else:
             return False
