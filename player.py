@@ -7,8 +7,7 @@ class Player:
 
     def betRequest(self, game_state):
         try:
-            data = json.load(game_state)
-            players = data["players"]
+            players = game_state["players"]
             self.log(players)
         except:
             return 600
